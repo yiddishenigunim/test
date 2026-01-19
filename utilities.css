@@ -1,0 +1,434 @@
+/**
+ * Utility Classes - Consolidated theming system
+ * Replaces 18+ individual classes with 3 reusable utilities
+ */
+
+/* ========================================
+   PAGE THEMES - Consolidated
+   ======================================== */
+
+/* Base page theme class - works with any theme color */
+.page-theme {
+    position: relative;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+    min-height: calc(100vh - 180px);
+    background: linear-gradient(180deg,
+        var(--theme-pale, var(--color-home-pale)) 0%,
+        color-mix(in srgb, var(--theme-pale, var(--color-home-pale)) 30%, #f8fafc) 300px,
+        #f8fafc 100%
+    );
+}
+
+/* Center content within full-width themed pages */
+.page-theme > * {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Theme color definitions - just set the variable */
+.theme-chatzer {
+    --theme-pale: var(--color-chatzer-pale);
+    --theme-color: var(--color-chatzer);
+    --theme-light: var(--color-chatzer-light);
+    --theme-dark: var(--color-chatzer-dark);
+}
+.theme-mechaber {
+    --theme-pale: var(--color-mechaber-pale);
+    --theme-color: var(--color-mechaber);
+    --theme-light: var(--color-mechaber-light);
+    --theme-dark: var(--color-mechaber-dark);
+}
+.theme-verter {
+    --theme-pale: var(--color-verter-pale);
+    --theme-color: var(--color-verter);
+    --theme-light: var(--color-verter-light);
+    --theme-dark: var(--color-verter-dark);
+}
+.theme-zman {
+    --theme-pale: var(--color-zman-pale);
+    --theme-color: var(--color-zman);
+    --theme-light: var(--color-zman-light);
+    --theme-dark: var(--color-zman-dark);
+}
+.theme-collection {
+    --theme-pale: var(--color-collection-pale);
+    --theme-color: var(--color-collection);
+    --theme-light: var(--color-collection-light);
+    --theme-dark: var(--color-collection-dark);
+}
+.theme-piyut {
+    --theme-pale: var(--color-piyut-pale);
+    --theme-color: var(--color-piyut);
+    --theme-light: var(--color-piyut-light);
+    --theme-dark: var(--color-piyut-dark);
+}
+.theme-nigun {
+    --theme-pale: var(--color-nigun-pale);
+    --theme-color: var(--color-nigun);
+    --theme-light: var(--color-nigun-light);
+    --theme-dark: var(--color-nigun-dark);
+}
+.theme-music {
+    --theme-pale: var(--color-music-pale);
+    --theme-color: var(--color-music);
+    --theme-light: var(--color-music-light);
+    --theme-dark: var(--color-music-dark);
+}
+.theme-resource {
+    --theme-pale: var(--color-resource-pale);
+    --theme-color: var(--color-resource);
+    --theme-light: var(--color-resource-light);
+    --theme-dark: var(--color-resource-dark);
+}
+.theme-document {
+    --theme-pale: var(--color-document-pale);
+    --theme-color: var(--color-document);
+    --theme-light: var(--color-document-light);
+    --theme-dark: var(--color-document-dark);
+}
+.theme-album {
+    --theme-pale: var(--color-album-pale);
+    --theme-color: var(--color-album);
+    --theme-light: var(--color-album-light);
+    --theme-dark: var(--color-album-dark);
+}
+
+/* Loading wave bar theming */
+.page-theme .loading-wave-bar.active::before {
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--theme-light) 25%,
+        var(--theme-color) 50%,
+        var(--theme-light) 75%,
+        transparent 100%
+    );
+}
+
+/* Page title bar theming */
+.page-theme .page-title-bar {
+    background: var(--theme-color);
+}
+
+/* ========================================
+   NAV DROPDOWN BUTTONS - Consolidated
+   ======================================== */
+
+/* Base nav button style - works with any theme color */
+/* Use with two classes: nav-dropdown-btn theme-{name} */
+.nav-dropdown-btn.theme-chatzer,
+.nav-dropdown-btn.theme-mechaber,
+.nav-dropdown-btn.theme-verter,
+.nav-dropdown-btn.theme-zman,
+.nav-dropdown-btn.theme-document,
+.nav-dropdown-btn.theme-collection,
+.nav-dropdown-btn.theme-piyut,
+.nav-dropdown-btn.theme-nigun,
+.nav-dropdown-btn.theme-music,
+.nav-dropdown-btn.theme-resource,
+.nav-dropdown-btn.theme-album {
+    background: white;
+    color: var(--theme-color);
+    border: 2px solid var(--theme-color);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--theme-color) 20%, transparent);
+}
+
+.nav-dropdown:hover .nav-dropdown-btn.theme-chatzer,
+.nav-dropdown:hover .nav-dropdown-btn.theme-mechaber,
+.nav-dropdown:hover .nav-dropdown-btn.theme-verter,
+.nav-dropdown:hover .nav-dropdown-btn.theme-zman,
+.nav-dropdown:hover .nav-dropdown-btn.theme-document,
+.nav-dropdown:hover .nav-dropdown-btn.theme-collection,
+.nav-dropdown:hover .nav-dropdown-btn.theme-piyut,
+.nav-dropdown:hover .nav-dropdown-btn.theme-nigun,
+.nav-dropdown:hover .nav-dropdown-btn.theme-music,
+.nav-dropdown:hover .nav-dropdown-btn.theme-resource,
+.nav-dropdown:hover .nav-dropdown-btn.theme-album {
+    background: var(--theme-pale);
+    transform: translateY(3px) scale(1.05);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--theme-color) 40%, transparent);
+}
+
+/* ========================================
+   CARD TAGS - Consolidated
+   ======================================== */
+
+/* Base tag style - works with any theme color */
+.card-tag {
+    display: inline-block;
+    background: var(--theme-color);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.card-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--theme-color) 30%, transparent);
+}
+
+/* ========================================
+   CARD DISPLAYS - Consolidated
+   ======================================== */
+
+.card-display {
+    display: inline-block;
+    background: white;
+    color: var(--theme-color);
+    border: 1.5px solid var(--theme-color);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.card-display:hover {
+    background: var(--theme-pale);
+    transform: scale(1.05);
+    box-shadow: 0 2px 6px color-mix(in srgb, var(--theme-color) 20%, transparent);
+}
+
+/* ========================================
+   DETAIL PAGES - Consolidated
+   ======================================== */
+
+/* Detail category bar - uses theme color */
+.detail-page .detail-category-bar {
+    background: var(--theme-color);
+}
+
+/* Detail title - uses theme dark color */
+.detail-page .detail-title,
+.detail-page h1 {
+    color: var(--theme-dark);
+}
+
+/* ========================================
+   DETAIL ACTION BUTTONS - Consolidated
+   ======================================== */
+
+/* Primary action buttons - solid background */
+.detail-page .detail-action-btn.primary {
+    background: var(--theme-color);
+    color: white;
+}
+
+.detail-page .detail-action-btn.primary:hover {
+    background: var(--theme-dark);
+}
+
+/* Secondary action buttons - pale background */
+.detail-page .detail-action-btn.secondary {
+    background: var(--theme-pale);
+    color: var(--theme-dark);
+}
+
+.detail-page .detail-action-btn.secondary:hover {
+    background: color-mix(in srgb, var(--theme-pale) 70%, var(--theme-color));
+}
+
+/* ========================================
+   LAYOUT UTILITIES - Consolidated
+   ======================================== */
+
+/* Vertical list layout - used for songs lists, search results, etc */
+.list-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ========================================
+   CONTRIBUTE BUTTONS - Consolidated
+   ======================================== */
+
+/* Base contribute button with gradient - uses theme colors */
+/* Use with two classes: contribute-btn themed theme-{name} */
+.contribute-btn.themed {
+    background: linear-gradient(135deg, var(--theme-color) 0%, var(--theme-dark) 100%);
+    box-shadow: 0 4px 15px color-mix(in srgb, var(--theme-color) 30%, transparent);
+}
+
+.contribute-btn.themed:hover {
+    box-shadow: 0 6px 25px color-mix(in srgb, var(--theme-color) 40%, transparent);
+}
+
+/* ========================================
+   CATEGORY GROUP HEADERS - Consolidated
+   ======================================== */
+
+/* Category group header with gradient - uses theme colors */
+/* Use with two classes: category-group-header themed theme-{name} */
+.category-group-header.themed {
+    background: linear-gradient(135deg, var(--theme-pale) 0%, white 100%);
+    border-right: 4px solid var(--theme-color);
+}
+
+.category-group-header.themed .category-group-title {
+    color: var(--theme-dark);
+}
+
+/* ========================================
+   CATEGORY CARDS - Consolidated
+   ======================================== */
+
+/* Category cards within themed pages - uses theme colors */
+.page-theme .category-card {
+    background: var(--theme-pale);
+    border-color: var(--theme-light);
+}
+
+.page-theme .category-card::after {
+    border-color: var(--theme-color);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--theme-color) 15%, transparent);
+}
+
+.page-theme .category-card-title {
+    color: var(--theme-color);
+}
+
+/* ========================================
+   SKELETON LOADING - Consolidated
+   ======================================== */
+
+/* Skeleton cards within themed pages - uses theme pale color */
+.page-theme .skeleton-card,
+.page-theme .skeleton-song-row {
+    background: color-mix(in srgb, var(--theme-pale) 70%, white);
+}
+
+/* ========================================
+   THEMED CARDS - Consolidated
+   ======================================== */
+
+/* Base themed card structure - used for resource-card, document-card, album-card */
+/* Use with class combinations: {type}-card where type is resource/document/album */
+.resource-card,
+.document-card,
+.album-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.resource-card > :first-child,
+.document-card > :first-child,
+.album-card > :first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.resource-card > :last-child,
+.document-card > :last-child,
+.album-card > :last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+/* Hover effect pseudo-element */
+.page-theme.theme-resource .resource-card::after,
+.page-theme.theme-document .document-card::after,
+.page-theme.theme-album .album-card::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 16px;
+    border: 2px solid var(--theme-color);
+    opacity: 0;
+    transition: opacity 0.2s ease, top 0s 0.2s, bottom 0s 0.2s, left 0s 0.2s, right 0s 0.2s;
+    pointer-events: none;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px color-mix(in srgb, var(--theme-color) 15%, transparent);
+}
+
+.page-theme.theme-resource .resource-card:hover::after,
+.page-theme.theme-document .document-card:hover::after,
+.page-theme.theme-album .album-card:hover::after {
+    opacity: 1;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.resource-card:hover,
+.album-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   STAT CARDS - Consolidated
+   ======================================== */
+
+/* Home page stat cards with theme colors */
+/* Use with classes: home-stat-card stat-themed theme-{name} */
+.home-stat-card.stat-themed {
+    background: linear-gradient(145deg, var(--theme-pale) 0%, white 100%);
+    border-color: var(--theme-pale);
+}
+
+.home-stat-card.stat-themed .home-stat-number {
+    color: var(--theme-dark);
+}
+
+.home-stat-card.stat-themed .home-stat-label {
+    color: var(--theme-color);
+}
+
+.home-stat-card.stat-themed:hover {
+    border-color: var(--theme-color);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   LINK CARDS - Consolidated
+   ======================================== */
+
+/* Home page link cards with theme colors */
+/* Use with classes: home-link-card link-themed theme-{name} */
+.home-link-card.link-themed .home-link-title {
+    color: var(--theme-dark);
+}
+
+.home-link-card.link-themed:hover {
+    border-color: var(--theme-color);
+    background: var(--theme-pale);
+}
+
+/* ========================================
+   CARD HEADERS - Consolidated
+   ======================================== */
+
+/* Themed card headers with gradient backgrounds */
+/* For resource, document, and album cards */
+.page-theme.theme-resource .resource-card-header,
+.page-theme.theme-document .document-card-header,
+.page-theme.theme-album .album-card-header {
+    background: linear-gradient(135deg, var(--theme-color) 0%, var(--theme-light) 100%);
+}
+
+/* Collection icon with themed gradient */
+.page-theme.theme-collection .collection-icon {
+    background: linear-gradient(135deg, var(--theme-color) 0%, var(--theme-light) 100%);
+}

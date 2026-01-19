@@ -1134,7 +1134,7 @@ body {
 
 /* Dropdown content positioning and default hidden state */
 .nav-dropdown-content {
-    display: none;
+    display: none !important;
     position: absolute;
     top: 100%;
     right: auto;
@@ -1194,7 +1194,7 @@ body {
 /* Keep dropdown open and parent styled when hovering anywhere in the dropdown area */
 .nav-dropdown:hover .nav-dropdown-content,
 .nav-dropdown:focus-within .nav-dropdown-content {
-    display: block;
+    display: block !important;
 }
 
 /* Parent button stays in hover state when dropdown is open */

@@ -1132,11 +1132,8 @@ body {
     transform: rotate(180deg);
 }
 
-/* Each button with its own category color border */.nav-dropdown-btn.nav-mechaber:hover,
-.nav-dropdown:hover.nav-dropdown-btn.nav-verter:hover,
-.nav-dropdown:hover.nav-dropdown-btn.nav-zman:hover,
-.nav-dropdown:hover.nav-dropdown-btn.nav-docs:hover,
-.nav-dropdown:hover.nav-dropdown-content {
+/* Dropdown content positioning and default hidden state */
+.nav-dropdown-content {
     display: none;
     position: absolute;
     top: 100%;

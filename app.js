@@ -8480,25 +8480,13 @@ function renderSearchResultsPage(container) {
                     ${matchingSongs.length > 10 ? `<button class="see-all-btn" onclick="searchInSongs('${searchQuery.replace(/'/g, "\\'")}')">זע אלע ${matchingSongs.length} →</button>` : ''}
                 </div>
                 <div class="list-layout">
-                    ${displaySongs.map((song, idx) => {
-            const globalIdx = allSongs.indexOf(song);
-            const hasAudio = !!song.audioUrl;
-            // No longer need to escape - using data attributes now
-            // Build meta with entity-specific colored links
-            const metaParts = [];
-            if (song.mechaber) metaParts.push(createMetaLinks(song.mechaber, 'mechabrim', 'mechaber', 'mechaber'));
-            if (song.category) metaParts.push(createMetaLinks(song.category, 'chatzeros', 'chatzer', 'chatzer'));
-            return `
-                            <div class="song-item ${!hasAudio ? 'no-audio' : ''}" onclick="${hasAudio ? `playSong(${globalIdx})` : `showSongDetails(${globalIdx})`}">
-                                <div class="song-number">${idx + 1}</div>
-                                <div class="song-info">
-                                    <div class="song-name">${song.name}</div>
-                                    <div class="song-meta">${metaParts.join(' • ')}</div>
-                                </div>
-                                <button class="song-details-btn" onclick="event.stopPropagation(); showSongDetails(${globalIdx});">דעטאלן</button>
-                            </div>
-                        `;
-        }).join('')}
+                    ${(() => {
+            const playlistIndices = displaySongs.map(song => allSongs.indexOf(song));
+            return displaySongs.map((song, i) => {
+                const globalIdx = allSongs.indexOf(song);
+                return renderSongItem(song, globalIdx, i + 1, playlistIndices);
+            }).join('');
+        })()}
                 </div>
             </div>
         `;

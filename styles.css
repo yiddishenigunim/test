@@ -1125,12 +1125,9 @@ body {
 .nav-dropdown-btn .nav-arrow {
     font-size: 1.1em;
     opacity: 0.6;
-    transition: transform 0.3s ease;
 }
 
-.nav-dropdown:hover .nav-dropdown-btn .nav-arrow {
-    transform: rotate(180deg);
-}
+
 
 /* Dropdown content positioning and default hidden state */
 .nav-dropdown-content {
